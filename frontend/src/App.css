@@ -1,0 +1,304 @@
+.app {
+  min-height: 100vh;
+  background: #f7f9fc;
+  color: #172033;
+}
+
+.navbar {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #172033;
+  color: white;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.brand span {
+  color: #778197;
+  font-size: 12px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5e687b;
+  font-size: 13px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #20a464;
+}
+
+.hero {
+  width: 86%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0 55px;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 13px;
+  border-radius: 30px;
+  background: #e9eef8;
+  color: #40506b;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #53647f;
+}
+
+.description {
+  max-width: 570px;
+  margin: 25px 0;
+  color: #657086;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.talk-button {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 14px;
+  background: #172033;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s;
+}
+
+.talk-button:hover {
+  transform: translateY(-2px);
+}
+
+.mic-icon {
+  font-size: 20px;
+}
+
+.privacy-note {
+  margin-top: 15px;
+  color: #8992a3;
+  font-size: 12px;
+}
+
+.assistant-card {
+  padding: 28px;
+  border-radius: 28px;
+  background: white;
+  border: 1px solid #e4e8ef;
+  box-shadow: 0 25px 70px rgba(32, 45, 70, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.small-label {
+  color: #7d8799;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.card-header h3 {
+  margin: 5px 0 0;
+  font-size: 23px;
+}
+
+.ai-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #edf1f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.wave-container {
+  height: 150px;
+  margin: 30px 0 15px;
+  border-radius: 20px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100px;
+}
+
+.wave span {
+  width: 4px;
+  border-radius: 10px;
+  background: #65738c;
+}
+
+.listening-text {
+  text-align: center;
+  color: #7a8496;
+  font-size: 13px;
+}
+
+.quick-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.quick-options button {
+  padding: 11px;
+  border: 1px solid #e3e7ed;
+  background: white;
+  border-radius: 10px;
+  color: #526078;
+  cursor: pointer;
+}
+
+.info-section {
+  width: 86%;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card {
+  background: white;
+  border: 1px solid #e6eaf0;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.info-icon {
+  font-size: 25px;
+}
+
+.info-card h3 {
+  margin: 15px 0 7px;
+  font-size: 17px;
+}
+
+.info-card p {
+  margin: 0;
+  color: #7b8495;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  border-top: 1px solid #e6eaf0;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  color: #8992a3;
+  font-size: 12px;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 600;
+}
+
+footer span {
+  margin: 0;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-top: 50px;
+  }
+
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .status {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .hero {
+    width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .info-section {
+    width: 90%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
