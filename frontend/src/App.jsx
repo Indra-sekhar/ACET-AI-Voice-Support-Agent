@@ -1,111 +1,113 @@
+import { useEffect, useRef, useState } from "react";
+import VapiModule from "@vapi-ai/web";
 import "./App.css";
 
+const Vapi = VapiModule.default;
 function App() {
+  const vapiRef = useRef(null);
+
+  const [isCalling, setIsCalling] = useState(false);
+  const [status, setStatus] = useState("Ready to help");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_VAPI_PUBLIC_KEY;
+
+    if (!publicKey) {
+      setError("Vapi public key is missing.");
+      return;
+    }
+
+    const vapi = new Vapi(publicKey);
+    vapiRef.current = vapi;
+
+    vapi.on("call-start", () => {
+      setIsCalling(true);
+      setStatus("Connected to ACET AI Support");
+      setError("");
+    });
+
+    vapi.on("call-end", () => {
+      setIsCalling(false);
+      setStatus("Call ended");
+    });
+
+    vapi.on("error", (error) => {
+      console.error("Vapi error:", error);
+      setError("Something went wrong. Please try again.");
+      setIsCalling(false);
+    });
+
+    return () => {
+      vapi.stop();
+    };
+  }, []);
+
+  const startCall = async () => {
+    const assistantId = import.meta.env.VITE_VAPI_ASSISTANT_ID;
+
+    if (!assistantId) {
+      setError("Vapi assistant ID is missing.");
+      return;
+    }
+
+    try {
+      setError("");
+      setStatus("Connecting...");
+
+      await vapiRef.current.start(assistantId);
+    } catch (error) {
+      console.error(error);
+      setError("Unable to start the voice assistant.");
+      setStatus("Connection failed");
+    }
+  };
+
+  const endCall = () => {
+    if (vapiRef.current) {
+      vapiRef.current.stop();
+    }
+  };
+
   return (
     <div className="app">
-      <header className="navbar">
-        <div className="brand">
-          <div className="brand-logo">ACET</div>
-          <div>
-            <h2>ACET AI Support</h2>
-            <span>Aditya College of Engineering & Technology</span>
-          </div>
+      <div className="card">
+        <div className="logo">ACET</div>
+
+        <h1>ACET AI Support</h1>
+
+        <p className="subtitle">
+          Your AI voice assistant for B.Tech admissions and student support.
+        </p>
+
+        <div className={`status ${isCalling ? "active" : ""}`}>
+          <span className="dot"></span>
+          {status}
         </div>
 
-        <div className="status">
-          <span className="status-dot"></span>
-          AI Assistant Online
-        </div>
-      </header>
-
-      <main className="hero">
-        <section className="hero-content">
-          <div className="badge">
-            🎓 B.Tech Student & Admission Support
-          </div>
-
-          <h1>
-            Your ACET support,
-            <br />
-            <span>just a conversation away.</span>
-          </h1>
-
-          <p className="description">
-            Ask about B.Tech programs, admissions, eligibility, hostel,
-            transport, or general college information. Talk naturally with
-            our AI support assistant.
-          </p>
-
-          <button className="talk-button">
-            <span className="mic-icon">🎙️</span>
-            Start Conversation
+        {!isCalling ? (
+          <button className="talk-button" onClick={startCall}>
+            🎙️ Talk to ACET AI
           </button>
+        ) : (
+          <button className="end-button" onClick={endCall}>
+            End Call
+          </button>
+        )}
 
-          <p className="privacy-note">
-            🔒 Your information is handled responsibly.
-          </p>
-        </section>
+        {error && <p className="error">{error}</p>}
 
-        <section className="assistant-card">
-          <div className="card-header">
-            <div>
-              <span className="small-label">ACET AI</span>
-              <h3>How can I help you?</h3>
-            </div>
-
-            <div className="ai-icon">✦</div>
-          </div>
-
-          <div className="wave-container">
-            <div className="wave">
-              {Array.from({ length: 28 }).map((_, index) => (
-                <span
-                  key={index}
-                  style={{
-                    height: `${20 + ((index * 17) % 55)}px`,
-                  }}
-                ></span>
-              ))}
-            </div>
-          </div>
-
-          <p className="listening-text">
-            Press the button to start talking
-          </p>
-
-          <div className="quick-options">
-            <button>B.Tech Programs</button>
-            <button>Admissions</button>
-            <button>Hostel</button>
-            <button>Transport</button>
-          </div>
-        </section>
-      </main>
-
-      <section className="info-section">
-        <div className="info-card">
-          <div className="info-icon">📚</div>
-          <h3>B.Tech Programs</h3>
-          <p>Explore the programs currently listed by ACET.</p>
+        <div className="features">
+          <div>🎓 B.Tech Programs</div>
+          <div>📚 Admission Support</div>
+          <div>🏫 College Information</div>
+          <div>📞 Student Enquiries</div>
         </div>
 
-        <div className="info-card">
-          <div className="info-icon">🎓</div>
-          <h3>Admission Support</h3>
-          <p>Get help with general admission enquiries.</p>
-        </div>
-
-        <div className="info-card">
-          <div className="info-icon">🏫</div>
-          <h3>Student Support</h3>
-          <p>Ask about hostel, transport and college information.</p>
-        </div>
-      </section>
-
-      <footer>
-        <p>ACET AI Voice Support Agent</p>
-        <span>Built as a PW Medharthi Capstone Project</span>
-      </footer>
+        <p className="footer">
+          Aditya College of Engineering and Technology
+        </p>
+      </div>
     </div>
   );
 }
