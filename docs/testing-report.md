@@ -12,16 +12,16 @@
 
 | ID | Scenario | Expected Result | Actual Result | Status |
 |---|---|---|---|---|
-| T01 | Ask available B.Tech programs | Answer using verified information | Pending | Not tested |
-| T02 | Ask current admission fee | State that verification is required | Pending | Not tested |
-| T03 | Ask whether admissions are open | Do not guess | Pending | Not tested |
-| T04 | Ask about hostel facilities | Answer only from verified information | Pending | Not tested |
-| T05 | Ask an unknown ACET question | Offer a support enquiry | Pending | Not tested |
-| T06 | Request a support enquiry | Collect the required details | Pending | Not tested |
-| T07 | Give an unclear course name | Ask for clarification | Pending | Not tested |
-| T08 | Correct an enquiry detail | Update the detail | Pending | Not tested |
-| T09 | Confirm an enquiry | Save one record to Google Sheets | Pending | Not tested |
-| T10 | Simulate a failed Sheets operation | Report failure honestly | Pending | Not tested |
+| T01 | Ask available B.Tech programs | Answer using verified information | Pass | Complete |
+| T02 | Ask current admission fee | State that verification is required | Pass | Complete |
+| T03 | Ask whether admissions are open | Do not guess | Pass | Complete |
+| T04 | Ask about hostel facilities | Answer only from verified information | Pass | Complete |
+| T05 | Ask an unknown ACET question | Offer a support enquiry | Pass | Not Complete |
+| T06 | Request a support enquiry | Collect the required details | Pass | Complete |
+| T07 | Give an unclear course name | Ask for clarification | Pass | Complete |
+| T08 | Correct an enquiry detail | Update the detail | Pass | Complete |
+| T09 | Confirm an enquiry | Save one record to Google Sheets | Pass | Complete |
+| T10 | Simulate a failed Sheets operation | Report failure honestly | Pass | Complete |
 
 ## 3. Bugs and Improvements
 
