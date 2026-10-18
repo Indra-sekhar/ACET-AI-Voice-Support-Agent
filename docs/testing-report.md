@@ -24,8 +24,7 @@
 | T07 | Give an unclear course name | Ask for clarification | Passed | Complete |
 | T08 | Correct an enquiry detail | Update the detail | Passed | Complete |
 | T09 | Confirm an enquiry | Save one record to Google Sheets | Passed | Complete |
-| T10 | Simulate a failed Sheets operation | Report failure honestly | Passed | Complete |
-
+| T10 | Simulate a failed Sheets operation | Report failure honestly | Failure response observed during original test; evidence unavailable for re-verification | Complete (historical) |
 ## 3. Bugs and Improvements
 
 ### 3.1 Vapi SDK Constructor Error
@@ -49,7 +48,7 @@
 - **Reported passed:** 10
 - **Reported failed:** 0
 - **Functional test completion:** 100%
-
+- **Evidence limitation:** T10 was completed during the original test, but its supporting data was accidentally deleted and the result could not be independently reverified during this revision.
 The above results reflect the recorded functional test outcomes. Supporting evidence should be retained through Vapi call logs, conversation transcripts, and Google Sheets records.
 
 ## 5. Deployment Verification
@@ -65,7 +64,7 @@ Final production verification must confirm that:
 4. A confirmed support enquiry creates a new Google Sheets record.
 5. A failed tool operation is communicated honestly.
 
-**Deployment verification status:** Pending final live-site check.
+**Deployment verification status:** Live website and voice assistant verified by the project developer. Google Sheets enquiry storage was also verified separately. Remaining checks should be marked complete only after they have been tested.
 
 ## 6. Final Outcome
 
