@@ -59,7 +59,7 @@
 
 ## 8. Remaining Improvements
 
-- Verify the complete workflow on the live deployment.
+- Expand live testing across admission enquiries, unclear speech, corrected details, and support-request failure scenarios.
 - Improve speech recognition for branch names and Indian accents.
 - Add enquiry status tracking for college staff.
 - Expand the knowledge base after verifying official information.
